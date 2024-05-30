@@ -1,4 +1,4 @@
-GreediRIS
+GreeDIMM
 *******
 
 This repository contains the software application described in *Scalable Influence Maximization using Distributed Streaming Maximum Cover*.
@@ -33,7 +33,7 @@ To enable Memkind or Metall please replace the conan install command with one of
    $ conan install --install-folder build . -o metall=True
 
 
-Now we are ready to configure and build GreediRIS:
+Now we are ready to configure and build GreeDIMM:
 
 .. code-block:: shell
 
@@ -43,7 +43,7 @@ Now we are ready to configure and build GreediRIS:
 Build Instructions
 ==================
 
-This project uses `WAF <https://waf.io>`_ as its build system.  Building GreediRIS
+This project uses `WAF <https://waf.io>`_ as its build system.  Building GreeDIMM
 is a two-step process: configure the project and build the tools.  Before
 attempting to build, be sure to have the following dependencies installed:
 
@@ -77,10 +77,10 @@ command line options can be obtained through:
 
    $ ./build/release/tools/<tool_name> --help
 
-Running GreediRIS
+Running GreeDIMM
 ================
 
-GreediRIS can be run with ``build/release/tools/mpi-greedi-im``. Running ``build/release/tools/mpi-greedi-im -h`` will provide the following information; 
+GreeDIMM can be run with ``build/release/tools/mpi-greedi-im``. Running ``build/release/tools/mpi-greedi-im -h`` will provide the following information; 
 
 .. code-block::
    
@@ -124,7 +124,7 @@ GreediRIS can be run with ``build/release/tools/mpi-greedi-im``. Running ``build
       -o,--output TEXT            The file name of the log.
 
 
-GreediRIS Team
+GreeDIMM Team
 ============
 
 - `Reet Barik | WSU <reet.barik@wsu.edu>`_
@@ -167,3 +167,4 @@ reflect those of the United States Government or any agency thereof.
    under Contract DE-AC05-76RL01830
    </pre>
    </div>
+

@@ -1,0 +1,74 @@
+{
+ "options": [
+  [
+   "memkind",
+   "False"
+  ],
+  [
+   "metal",
+   "False"
+  ],
+  [
+   "nvidia_cub",
+   "True"
+  ],
+  [
+   "catch2:default_reporter",
+   "None"
+  ],
+  [
+   "catch2:with_main",
+   "False"
+  ],
+  [
+   "catch2:with_prefix",
+   "False"
+  ],
+  [
+   "fmt:header_only",
+   "False"
+  ],
+  [
+   "fmt:shared",
+   "True"
+  ],
+  [
+   "fmt:with_fmt_alias",
+   "False"
+  ],
+  [
+   "fmt:with_os_api",
+   "True"
+  ],
+  [
+   "libtrng:shared",
+   "True"
+  ],
+  [
+   "spdlog:header_only",
+   "False"
+  ],
+  [
+   "spdlog:no_exceptions",
+   "False"
+  ],
+  [
+   "spdlog:shared",
+   "True"
+  ],
+  [
+   "spdlog:wchar_filenames",
+   "False"
+  ],
+  [
+   "spdlog:wchar_support",
+   "False"
+  ]
+ ],
+ "root": {
+  "name": null,
+  "version": null,
+  "user": null,
+  "channel": null
+ }
+}
