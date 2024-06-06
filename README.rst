@@ -1,5 +1,5 @@
-GreeDIMM
-*******
+GreediRIS
+=====================
 
 This repository contains the software application described in *Scalable Influence Maximization using Distributed Streaming Maximum Cover*.
 
