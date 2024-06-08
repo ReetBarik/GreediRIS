@@ -8,13 +8,9 @@ The outputs for each experiment are split into three distinct files
 - The `<experiment>.e` is populated if an error occures during the runtime of the experiment. 
 
 The experimental results used in the article are divided into three subdirectories;
-- `/imm/` contains the experimental results for the `IMM-mt` and `Ripples` columns in table 5. 
+- `/imm/` and `/diimm/` contains the experimental results for the `Ripples` and `DiIMM` columns repectively in table 4. 
 - `/strong_scaling/` contains the experimental results for 
-  - table 4
-  - the results for the `GreeDIMM` column in table 5
-  - table 7
-  - figure 4 and figure 5
-- `/truncated/` contains the experimental results for table 6
-
-## Quality
-To recalculate the quality estimation for a completed job the `./get_quality.sh <path/to/GreeDIMM> <path/to/experiment/network/directory/> <path/to/input/dataset/>` script can be used. This iterates through all of the `*.json` files in the `<path/to/experiment/network/directory/>` directory and outputs the quality data into the `<path/to/experiment/network/directory/quality/>` directory.
+  - the results for the `GreediRIS` column in table 4
+  - table 5
+  - figure 3 and figure 4
+- `/truncated/` contains the experimental results for figure 5
