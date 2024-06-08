@@ -1,8 +1,9 @@
 # Generate plots
 
-The scripts in this directory can be used to generate the plots shown in Figures 4 and 5 of the article. Figure 4 (a) and (b) shows the parallel runtime breakdown of the receiver, longest running sender, and the total runtime for GreeDIMM. Figure 4 (a) shows the livejournal breakdown and figure 4 (b) shows the wikipedia breakdown. Figure 5 (a) and (b) provides the parallel runtime breakdown for the receiver process, with seperate bars for the communicating thread and bucketing threads. Figure 5 (a) shows the livejournal receiver breakdown and figure 5 (b) shows the wikipedia receiver breakdown. 
+The scripts in this directory can be used to generate the plots shown in Figures 3, 4, and 5 of the article. 
+Figure 3 shows the better scaling behavior of GreediRIS and GreediRIS-trunc compared to that of Ripples for a representative input. Figure 4 shows the parallel runtime breakdown of the receiver, longest running sender, and the total runtime for GreediRIS. Figure 5 (a) and (b) shows the scaling behavior of GreediRIS and GreediRIS-trunc respectively with the seed-selection step shown as a shaded fraction of the total runtime. 
 
-The command to generate the plots in Figures 4 and 5 are: `python3 plot_master.py`
+The command to generate the plots in Figures 3, 4, and 5 are: `python3 plot_master.py`
 
 This will result in the generation of the following:
 * Figure3.PDF -- corresponding to the scaling plot in Figure 3 in the article.
