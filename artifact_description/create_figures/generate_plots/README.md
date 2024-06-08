@@ -5,9 +5,7 @@ The scripts in this directory can be used to generate the plots shown in Figures
 The command to generate the plots in Figures 4 and 5 are: `python3 plot_master.py`
 
 This will result in the generation of the following:
-* Figure4_livejournal_breakdown.PDF -- corresponding to the plot in Figure 4 (a) in the article.
-* Figure4_wikipedia_breakdown.PDF -- corresponding to the plot in Figure 4 (b) in the article.
-* Figure5_livejournal_receiver_breakdown.PDF -- corresponding to the plot in Figure 5 (a) in the article.
-* Figure5_wikipedia_receiver_breakdown.PDF -- corresponding to the plot in Figure 5 (b) in the article.
-
+* Figure3.PDF -- corresponding to the scaling plot in Figure 3 in the article.
+* Figure4_livejournal_breakdown.PDF -- corresponding to the breakdown plot in Figure 4 in the article.
+* Figure5.PDF -- corresponding to the truncated plot in Figure 5 in the article.
 
