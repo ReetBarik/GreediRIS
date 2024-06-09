@@ -77,10 +77,10 @@ command line options can be obtained through:
 
    $ ./build/release/tools/<tool_name> --help
 
-Running GreeDIMM
+Running GreediRIS
 ================
 
-GreeDIMM can be run with ``build/release/tools/mpi-greedi-im``. Running ``build/release/tools/mpi-greedi-im -h`` will provide the following information; 
+GreediRIS can be run with ``build/release/tools/mpi-greedi-im``. Running ``build/release/tools/mpi-greedi-im -h`` will provide the following information; 
 
 .. code-block::
    
@@ -124,7 +124,7 @@ GreeDIMM can be run with ``build/release/tools/mpi-greedi-im``. Running ``build/
       -o,--output TEXT            The file name of the log.
 
 
-GreeDIMM Team
+GreediRIS Team
 ============
 
 - `Reet Barik | WSU <reet.barik@wsu.edu>`_
