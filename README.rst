@@ -33,7 +33,7 @@ To enable Memkind or Metall please replace the conan install command with one of
    $ conan install --install-folder build . -o metall=True
 
 
-Now we are ready to configure and build GreeDIMM:
+Now we are ready to configure and build GreediRIS:
 
 .. code-block:: shell
 
@@ -43,7 +43,7 @@ Now we are ready to configure and build GreeDIMM:
 Build Instructions
 ==================
 
-This project uses `WAF <https://waf.io>`_ as its build system.  Building GreeDIMM
+This project uses `WAF <https://waf.io>`_ as its build system.  Building GreediRIS
 is a two-step process: configure the project and build the tools.  Before
 attempting to build, be sure to have the following dependencies installed:
 
