@@ -6,11 +6,11 @@ import sys
 import subprocess
 
 
-nodes = [129]
+nodes = [513]
 
 datasets = ['orkut_small']
 
-alpha = [100, 80, 60, 40 , 20]
+alpha = [100, 50, 25, 0.125]
 
 account = sys.argv[1]
 
