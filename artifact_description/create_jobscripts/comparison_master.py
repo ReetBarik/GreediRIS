@@ -16,8 +16,8 @@ def build_comparision_jobs(account):
 		for model in models:
 			directed_flag = '1' if d in undirected_datasets else '0'
 			write_greediris_job_script(account, nodes + 1, d, directed_flag, model, k, "")
-			write_greediris_job_script(account, nodes + 1, d, directed_flag, model, k, "0.125")
-			write_imm_job_script(account, nodes, d, directed_flag, k, model)
+			write_greediris_job_script(account, nodes + 1, d, directed_flag, model, k, "125")
+			write_imm_job_script(account, nodes, d, directed_flag, model, k)
 			# still need to add DIiMM scripts
 
 if __name__ == "__main__": 

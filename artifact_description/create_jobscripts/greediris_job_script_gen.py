@@ -8,7 +8,7 @@ import os
 def write_greediris_job_script(account, nodes, dataset, directed_flag, model, k, alpha):
     job_name = f"m{nodes}_{model}_{dataset}"
     if alpha != "": 
-        job_name += f"_a{alpha}"
+        job_name += f"_a{alpha*100}"
 
     output_path = os.path.abspath('../results/strong_scaling/' + dataset + f'/{job_name}')
     tool_path = os.path.abspath('../../build/release/tools/mpi-greedimm')

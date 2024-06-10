@@ -8,7 +8,7 @@ from greediris_job_script_gen import write_greediris_job_script
 def build_truncated_master(account):
 	nodes = 512
 	dataset = 'friendster'
-	alpha = [100, 50, 25, 0.125]
+	alpha = [1, 0.50, 0.25, 0.125]
 	k = 1000
 
 	for a in alpha:

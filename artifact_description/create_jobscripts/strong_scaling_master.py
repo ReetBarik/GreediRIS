@@ -18,9 +18,9 @@ def build_scaling_master(account):
 			if ((d == 'wikipedia' or d == 'friendster') and (n < 65)):
 				continue
 			else:
-				write_greediris_job_script(account, n + 1, d, directed_flag, model, k, "")
-				write_greediris_job_script(account, n + 1, d, directed_flag, model, k, "0.125")
-				write_imm_job_script(account, n, d, directed_flag, model)
+				write_greediris_job_script(account, n + 1, d, directed_flag, "IC", k, "")
+				write_greediris_job_script(account, n + 1, d, directed_flag, "IC", k, "0.125")
+				write_imm_job_script(account, n, d, directed_flag, "IC", k)
 				# still need to add DIiMM scripts
 
 if __name__ == "__main__": 
