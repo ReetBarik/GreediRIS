@@ -1,7 +1,7 @@
 import sys
 import os
 
-def write_imm_job_script(account, nodes, dataset, directed_flag, model, alpha):
+def write_imm_job_script(account, nodes, dataset, directed_flag, model, k):
     job_name = f"imm_{nodes}_{model}_{dataset}"
     output_path = os.path.abspath('../results/imm/' + dataset + '/' + job_name)
     tool_path = os.path.abspath('../../build/release/tools/mpi-imm')
@@ -32,7 +32,7 @@ def write_imm_job_script(account, nodes, dataset, directed_flag, model, alpha):
     module load cray-mpich
     module load cray-libsci
 
-    srun -n {nodes} {tool_path} -i {dataset_path} -w -k 100 -p {directed_flag} -d {model} -e 0.13 -o {output_path}.json --reload-binary'''
+    srun -n {nodes} {tool_path} -i {dataset_path} -w -k {k} -p {directed_flag} -d {model} -e 0.13 -o {output_path}.json --reload-binary'''
 
     with open('imm_' + str(nodes) + '_' + model + '_' + dataset + '.sh', 'w') as f:
         f.write(script)
@@ -43,5 +43,6 @@ if __name__ == "__main__":
     dataset = sys.argv[3]
     directed_flag = '-u' if sys.argv[4] == '1' else ''
     model = sys.argv[5]
+    k = sys.argv[6]
 
-    write_imm_job_script(account, nodes, dataset, directed_flag, model)
+    write_imm_job_script(account, nodes, dataset, directed_flag, model, k)

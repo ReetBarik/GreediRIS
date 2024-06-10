@@ -3,20 +3,17 @@
 # python3 truncated_master.py <ACCOUNT>
 
 import sys
-import subprocess
+from greediris_job_script_gen import write_greediris_job_script
 
+def build_truncated_master(account):
+	nodes = 512
+	dataset = 'friendster'
+	alpha = [100, 50, 25, 0.125]
+	k = 1000
 
-nodes = [513]
+	for a in alpha:
+		write_greediris_job_script(account, nodes + 1, dataset, "0", "IC", k, a)
 
-datasets = ['orkut_small']
-
-alpha = [100, 50, 25, 0.125]
-
-account = sys.argv[1]
-
-for d in datasets:
-	for n in nodes:
-		for a in alpha:
-			command = 'python3 truncated_jobs.py ' +  str(account) + ' ' + str(n) + ' ' +  str(d) + ' 0 1 ' + str(a)
-			print(command)
-			subprocess.call(command.split())
+if __name__ == "__main__": 
+	account = sys.argv[1]
+	build_truncated_master(account)

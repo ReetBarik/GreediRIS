@@ -3,23 +3,26 @@
 # python3 strong_scaling_master.py <ACCOUNT>
 
 import sys
-import subprocess
+from greediris_job_script_gen import write_greediris_job_script
+from imm_job_script_gen import write_imm_job_script
 
+def build_scaling_master(account):
+	nodes = [8, 16, 32, 64, 128, 256, 512, 1024]
+	k = 100
 
-nodes = [9, 17, 33, 65, 129, 257, 513, 1025]
-
-datasets = ['Pokec', 'livejournal', 'orkut_small', 'orkut_big', 'wikipedia', 'friendster']
-
-account = sys.argv[1]
-
-for d in datasets:
-	for n in nodes:
-		if ((d == 'wikipedia' or d == 'friendster') and (n < 65)):
-			continue
-		else:
-			if (d == 'orkut_small' or d == 'orkut_big' or d == 'wikipedia'):
-				command = 'python3 strong_scaling_jobs.py ' + str(account) + ' ' + str(n) + ' ' + str(d) + ' 1' + ' 1'
+	directed_datasets = ['Pokec', 'livejournal', 'friendster']
+	undirected_datasets = ['orkut_small', 'orkuk_big', 'wikipedia']
+	for d in directed_datasets + undirected_datasets:
+		for n in nodes:
+			directed_flag = '1' if d in undirected_datasets else '0'
+			if ((d == 'wikipedia' or d == 'friendster') and (n < 65)):
+				continue
 			else:
-				command = 'python3 strong_scaling_jobs.py ' + str(account) + ' ' + str(n) + ' ' + str(d) + ' 0' + ' 1'
-			print(command)
-			subprocess.call(command.split())
+				write_greediris_job_script(account, n + 1, d, directed_flag, model, k, "")
+				write_greediris_job_script(account, n + 1, d, directed_flag, model, k, "0.125")
+				write_imm_job_script(account, n, d, directed_flag, model)
+				# still need to add DIiMM scripts
+
+if __name__ == "__main__": 
+	account = sys.argv[1]
+	build_scaling_master(account)

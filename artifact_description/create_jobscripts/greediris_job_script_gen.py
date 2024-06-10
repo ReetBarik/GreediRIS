@@ -5,7 +5,7 @@ import sys
 import os
 
 
-def write_greediris_job_script(account, nodes, dataset, directed_flag, model, alpha):
+def write_greediris_job_script(account, nodes, dataset, directed_flag, model, k, alpha):
     job_name = f"m{nodes}_{model}_{dataset}"
     if alpha != "": 
         job_name += f"_a{alpha}"
@@ -39,7 +39,7 @@ def write_greediris_job_script(account, nodes, dataset, directed_flag, model, al
     module load cray-mpich
     module load cray-libsci
 
-    srun -n {nodes} {tool_path} -i {dataset_path} -w -k 100 -p {directed_flag} -d {model} -e 0.13 -o {output_path}.json --run-streaming=true --epsilon-2=0.077 --reload-binary'''
+    srun -n {nodes} {tool_path} -i {dataset_path} -w -k {k} -p {directed_flag} -d {model} -e 0.13 -o {output_path}.json --run-streaming=true --epsilon-2=0.077 --reload-binary'''
 
     if alpha != "":
         script += f" --alpha={alpha}"
@@ -53,9 +53,10 @@ if __name__ == "__main__":
     dataset = sys.argv[3]
     directed_flag = '-u' if sys.argv[4] == '1' else ''
     model = sys.argv[5]
+    k = sys.argv[6]
     alpha = ""
-    if len(sys.argv) == 7:
-        alpha = sys.argv[6]
+    if len(sys.argv) == 8:
+        alpha = sys.argv[7]
 
-    script = write_greediris_job_script(account, nodes, dataset, directed_flag, model, alpha)
+    script = write_greediris_job_script(account, nodes, dataset, directed_flag, model, k, alpha)
 
