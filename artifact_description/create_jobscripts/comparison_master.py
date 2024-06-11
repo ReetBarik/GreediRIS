@@ -2,39 +2,24 @@
 # python3 comparison_master.py <ACCOUNT>
 
 import sys
-import subprocess
+from greediris_job_script_gen import write_greediris_job_script
+from imm_job_script_gen import write_imm_job_script
 
-nodes = [1, 513]
+def build_comparision_jobs(account):
+	k = 100
+	nodes = 512
+	models = ['LT', 'IC']
+	directed_datasets = ['HepPh', 'Pokec', 'livejournal', 'friendster']
+	undirected_datasets = ['github', 'DBLP', 'orkut_small', 'orkuk_big', 'wikipedia']
 
-datasets = ['github', 'HepPh', 'DBLP', 'Pokec', 'livejournal', 'orkut_small', 'orkut_big', 'wikipedia', 'friendster']
+	for d in directed_datasets + undirected_datasets:
+		for model in models:
+			directed_flag = '1' if d in undirected_datasets else '0'
+			write_greediris_job_script(account, nodes + 1, d, directed_flag, model, k, "")
+			write_greediris_job_script(account, nodes + 1, d, directed_flag, model, k, "125")
+			write_imm_job_script(account, nodes, d, directed_flag, model, k)
+			# still need to add DIiMM scripts
 
-account = sys.argv[1]
-
-for d in datasets:
-	for n in nodes:
-		if (n == 513):
-			if (d == 'github' or d == 'DBLP' or d == 'orkut_small' or d == 'orkut_big' or d == 'wikipedia'):
-				command_IC = 'python3 strong_scaling_jobs.py ' + str(account) + ' ' + str(n) + ' ' + str(d) + ' 1' + ' 1'
-				command_LT = 'python3 strong_scaling_jobs.py ' + str(account) + ' ' + str(n) + ' ' + str(d) + ' 1' + ' 0'
-				command_IC_IMM = 'python3 imm_jobs.py ' + str(account) + ' ' + str(n - 1) + ' ' + str(d) + ' 1' + ' 1'
-				command_LT_IMM = 'python3 imm_jobs.py ' + str(account) + ' ' + str(n - 1) + ' ' + str(d) + ' 1' + ' 0'
-			else:
-				command_IC = 'python3 strong_scaling_jobs.py ' + str(account) + ' ' + str(n) + ' ' + str(d) + ' 0' + ' 1'
-				command_LT = 'python3 strong_scaling_jobs.py ' + str(account) + ' ' + str(n) + ' ' + str(d) + ' 0' + ' 0'
-				command_IC_IMM = 'python3 imm_jobs.py ' + str(account) + ' ' + str(n - 1) + ' ' + str(d) + ' 0' + ' 1'
-				command_LT_IMM = 'python3 imm_jobs.py ' + str(account) + ' ' + str(n - 1) + ' ' + str(d) + ' 0' + ' 0'
-			
-			subprocess.call(command_IC.split())
-			subprocess.call(command_LT.split())
-			subprocess.call(command_IC_IMM.split())
-			subprocess.call(command_LT_IMM.split())
-		else:
-			if (d == 'github' or d == 'DBLP' or d == 'orkut_small' or d == 'orkut_big' or d == 'wikipedia'):
-				command_IC_IMM = 'python3 imm_jobs.py ' + str(account) + ' ' + str(n) + ' ' + str(d) + ' 1' + ' 1'
-				command_LT_IMM = 'python3 imm_jobs.py ' + str(account) + ' ' + str(n) + ' ' + str(d) + ' 1' + ' 0'
-			else:
-				command_IC_IMM = 'python3 imm_jobs.py ' + str(account) + ' ' + str(n) + ' ' + str(d) + ' 0' + ' 1'
-				command_LT_IMM = 'python3 imm_jobs.py ' + str(account) + ' ' + str(n) + ' ' + str(d) + ' 0' + ' 0'
-		
-			subprocess.call(command_IC_IMM.split())
-			subprocess.call(command_LT_IMM.split())
+if __name__ == "__main__": 
+	account = sys.argv[1]
+	build_comparision_jobs(account)

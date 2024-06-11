@@ -5,15 +5,12 @@ The python scripts in this directory each generate a series of jobscripts. These
 ## Generating job scripts for different categories of experiments
 
 For every table in section 4 the following python commands can be used to generate all the job scripts required to populate that table. These commands *do not nessessarly produce unique job scripts*, as there is overlap in the experiments across the tables.
-* Table 4: Strong scaling performance of GreediRIS for different inputs, varying $m$ up to $1024$ nodes. 
-Command: `python3 strong_scaling_master.py <Account>`
-* Table 5: Comparison of GreediRIS with Ripples and IMM-mt. 
+* Table 4: Performance comparision, with $m = 512$ of Ripples, DiMM, GreediRIS, and GreediRIS-truncated. 
 Command: `python3 comparison_master.py <Account>`
-* Table 6: GreediRIS-trunc: Runtime of the seed selection step (in sec) as a function of $\alpha$—the fraction of seeds sent from each sender—for Orkut with $m = 128$. 
+* Table 5: Strong scaling performance of GreediRIS for different inputs, varying $m$ up to $1024$ nodes. 
+Command: `python3 strong_scaling_master.py <Account>`
+* Table 6: GreediRIS-trunc: Runtime of the seed selection step (in sec) as a function of $\alpha$—the fraction of seeds sent from each sender—for Orkut with $m = 512$. 
 Command: `python3 truncated_master.py <Account>`
-* Table 7: Quality (measured in the expected number of activations
-from the output seed set) as a function of $m$.
-Command: `python3 quality_master.py <Account>`
 
 These python scripts will output all generated experiment scripts into this directory.
 
